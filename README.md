@@ -1,1 +1,2 @@
-# horse_search
+# auto trader
+Automated search and query
