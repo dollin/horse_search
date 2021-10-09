@@ -17,7 +17,7 @@ def crawl(soup, work_queue, site_context, car_details_file):
                 f"{strip(card_content.find('p', {'class': 'product-card-details__subtitle'}).text)}"
 
         sub_title = ''
-        if card_content.find('p', {'class': 'product-card-details__attention-grabber'}) is not None:
+        if card_content.find('p', {'class': 'product-card-details__attention-grabber'}) isgit not None:
             sub_title = strip(card_content.find('p', {'class': 'product-card-details__attention-grabber'}).text)
 
         price = strip(card_content.find('div', {'class': 'product-card-pricing__price'}).text)
@@ -32,7 +32,6 @@ def crawl(soup, work_queue, site_context, car_details_file):
         for li in card_content.find_all('li', {'class': 'product-card-seller-info__spec-item atc-type-picanto'}):
             for span in li.find_all('span', {'class': 'product-card-seller-info__spec-item-copy'}):
                 seller_location = f'{strip(span.text)} - {strip(span.next_sibling)}'
-        # TODO; extract the year and mileage
         year = 0
         for detail in details:
             if re.match('\d{4} \(.* reg\)', detail):
