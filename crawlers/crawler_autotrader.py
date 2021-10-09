@@ -17,7 +17,7 @@ def crawl(soup, work_queue, site_context, car_details_file):
                 f"{strip(card_content.find('p', {'class': 'product-card-details__subtitle'}).text)}"
 
         sub_title = ''
-        if card_content.find('p', {'class': 'product-card-details__attention-grabber'}) isgit not None:
+        if card_content.find('p', {'class': 'product-card-details__attention-grabber'}) is not None:
             sub_title = strip(card_content.find('p', {'class': 'product-card-details__attention-grabber'}).text)
 
         price = strip(card_content.find('div', {'class': 'product-card-pricing__price'}).text)
